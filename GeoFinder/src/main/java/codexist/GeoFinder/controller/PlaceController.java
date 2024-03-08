@@ -3,9 +3,7 @@ package codexist.GeoFinder.controller;
 import codexist.GeoFinder.repository.PlaceRepository;
 import codexist.GeoFinder.model.Place;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +15,10 @@ public class PlaceController {
     private PlaceRepository placeRepository;
     @GetMapping("/places")
     public List<Place> getAllEmployees(){
-
         return placeRepository.findAll();
+    }
+    @PostMapping("/places")
+    public Place createPlace(@RequestBody Place place){
+        return placeRepository.save(place);
     }
 }
