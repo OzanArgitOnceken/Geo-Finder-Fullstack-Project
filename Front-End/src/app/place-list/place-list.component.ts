@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../place';
+import { PlaceService } from '../place.service';
 
 /*
 Decorator that marks a class as an Angular component and provides 
@@ -14,9 +15,19 @@ processed, instantiated, and used at runtime.
 export class PlaceListComponent implements OnInit{
   
   places:Place[]=[];
-  constructor(){}
+  //bunu aşağıdaki constructor gibi kullanamamamın sebebi Angular,
+  //constructor parametrelerini enjekte ederken TypeScript'in tip 
+  //güvenliği özelliklerini kullanır. Router ve NavController gibi parametreler, 
+  //Angular tarafından sağlanan servislerdir ve bu nedenle Angular,
+  //bunları constructor parametreleri olarak algılayabilir ve uygun enjeksiyonları gerçekleştirebilir.
+ 
+  constructor(private placeService:PlaceService){}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getPlaces();
   }
-
+  private getPlaces(){
+    this.placeService.getPlacesList().subscribe(data=>{
+      this.places=data;
+    });
+  }
 }
