@@ -18,7 +18,10 @@ export class PlaceService {
   getPlaceById(id:number):Observable<Place>{
     return this.httpClient.get<Place>(`${this.baseURL}/${id}`);
   }
-  updatePlace(id:number,place:Place){ 
+  updatePlace(id:number,place:Place):Observable<Object>{ 
     return this.httpClient.put(`${this.baseURL}/${id}`,place); 
+  }
+  deletePlace(id:number){ 
+    return this.httpClient.delete(`${this.baseURL}/${id}`); 
   }
 }

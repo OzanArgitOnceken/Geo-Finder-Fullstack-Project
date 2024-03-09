@@ -48,7 +48,7 @@ public class PlaceController {
         Place updatedPlace =placeRepository.save(place);
         return ResponseEntity.ok(updatedPlace);
     }
-    @DeleteMapping("/places/id")
+    @DeleteMapping("/places/{id}")
     public ResponseEntity<Map<String,Boolean>> deletePlace(@PathVariable Long id){
         Place place=placeRepository.findById(id)
             .orElseThrow(()-> new ResourceNotFoundException("Place not exist with "+id+" id"));

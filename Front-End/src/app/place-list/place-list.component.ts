@@ -34,4 +34,11 @@ export class PlaceListComponent implements OnInit{
   updatePlace(id:number){
     this.router.navigate(['update-place',id]);
   }
+  deletePlace(id:number){
+    if(confirm('Are you sure to delete Place?'))
+    this.placeService.deletePlace(id).subscribe(data=>{
+      console.log(data);
+      this.getPlaces();
+    })
+  }
 }
