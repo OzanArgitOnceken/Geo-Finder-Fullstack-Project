@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../place';
 import { PlaceService } from '../place.service';
+import { Router } from '@angular/router';
 
 /*
 Decorator that marks a class as an Angular component and provides 
@@ -10,7 +11,7 @@ processed, instantiated, and used at runtime.
 @Component({
   selector: 'app-place-list',
   templateUrl: './place-list.component.html',
-  styleUrl: './place-list.component.css'
+  styleUrls: ['./place-list.component.css']
 })
 export class PlaceListComponent implements OnInit{
   
@@ -21,7 +22,7 @@ export class PlaceListComponent implements OnInit{
   //Angular tarafından sağlanan servislerdir ve bu nedenle Angular,
   //bunları constructor parametreleri olarak algılayabilir ve uygun enjeksiyonları gerçekleştirebilir.
  
-  constructor(private placeService:PlaceService){}
+  constructor(private placeService:PlaceService,private router:Router){}
   ngOnInit(): void {
     this.getPlaces();
   }
@@ -29,5 +30,8 @@ export class PlaceListComponent implements OnInit{
     this.placeService.getPlacesList().subscribe(data=>{
       this.places=data;
     });
+  }
+  updatePlace(id:number){
+    this.router.navigate(['update-place',id]);
   }
 }

@@ -6,12 +6,14 @@ import { PlaceListComponent } from './place-list/place-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatePlaceComponent } from './create-place/create-place.component';
 import { FormsModule } from '@angular/forms';
+import { UpdatePlaceComponent } from './update-place/update-place.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaceListComponent,
-    CreatePlaceComponent
+    CreatePlaceComponent,
+    UpdatePlaceComponent
   ],
   imports: [
     BrowserModule,
