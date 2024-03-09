@@ -35,6 +35,7 @@ public class PlaceController {
         return ResponseEntity.ok(place);
     }
 
+    @PutMapping("/places/{id}")
     public ResponseEntity<Place> updatePlace(@PathVariable Long id,@RequestBody Place placeDetails){
         Place place=placeRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("Place not exist with "+id+" id"));
