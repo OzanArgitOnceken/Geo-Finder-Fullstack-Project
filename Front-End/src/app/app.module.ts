@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PlaceListComponent } from './place-list/place-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatePlaceComponent } from './create-place/create-place.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CreatePlaceComponent } from './create-place/create-place.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [

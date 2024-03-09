@@ -12,5 +12,8 @@ export class PlaceService {
   getPlacesList(): Observable<Place[]> {
     return this.httpClient.get<Place[]>(`${this.baseURL}`);
   }
+  createPlace(place:Place):Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,place);
+  }
   
 }

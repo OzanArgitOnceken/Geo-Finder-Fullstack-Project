@@ -1,1 +1,19 @@
-<p>create-place works!</p>
+<h3>Add Place</h3>
+<form (ngSubmit) = "onSubmit()">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" id="placeName"
+        [(ngModel)]="place.name" name="placeName">
+    </div>
+    <div class="form-group">
+        <label>Longitude</label>
+        <input type="number" class="form-control" id="longitude"
+        [(ngModel)]="place.longitude" name="longitude">
+    </div>
+    <div class="form-group">
+        <label>Latitude</label>
+        <input type="number" class="form-control" id="latitude"
+        [(ngModel)]="place.latitude" name="latitude">
+    </div>
+    <button class="btn btn-success" type="submit">Submit Place</button>
+</form>
