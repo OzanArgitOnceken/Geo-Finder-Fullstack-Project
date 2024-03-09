@@ -7,14 +7,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-place',
   templateUrl: './create-place.component.html',
-  styleUrls: ['./create-place.component.css'] // styleUrls kullanın, styleUrl değil
+  styleUrls: ['./create-place.component.css'] 
 })
 export class CreatePlaceComponent implements OnInit {
   place: Place = new Place();
   constructor(private placeService:PlaceService,private router:Router){}
   savePlace(){
+    console.log("SELAM");
     this.placeService.createPlace(this.place).subscribe(data=>{
         console.log(data);
+        console.log("no problem here");
         this.goToPlaceList();
       },
       error=>console.log(error)
@@ -29,5 +31,6 @@ export class CreatePlaceComponent implements OnInit {
   
   onSubmit(): void {
     console.log(this.place);
+    this.savePlace();
   }
 }
