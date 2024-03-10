@@ -9,7 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { UpdatePlaceComponent } from './update-place/update-place.component';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { PlacesMapComponent } from './places-map/places-map.component'; 
-
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { PlacesMapComponent } from './places-map/places-map.component';
     PlacesMapComponent, 
   ],
   imports: [
+    CommonModule, 
     BrowserModule,
     AppRoutingModule,
     FormsModule,

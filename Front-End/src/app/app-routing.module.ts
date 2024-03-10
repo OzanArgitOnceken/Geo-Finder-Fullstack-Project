@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlaceListComponent } from './place-list/place-list.component';
 import { CreatePlaceComponent } from './create-place/create-place.component';
 import { UpdatePlaceComponent } from './update-place/update-place.component';
-import { PlacesMapComponent } from './places-map/places-map.component';
+import { PlacesMapComponent } from './places-map/places-map.component'; 
 
 const routes: Routes = [
   {path: 'places',component: PlaceListComponent},
