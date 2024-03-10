@@ -1,8 +1,8 @@
-<h1>Update Place</h1>
 <form (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label>Name</label>
         <input type="text" class="form-control" id="placeName"
+        placeholder="Name cannot be empty"
         [(ngModel)]="place.name" name="placeName" required>
     </div>
     <div class="form-group">
@@ -19,5 +19,5 @@
         pattern="-?\d+(\.\d+)?" (ngModelChange)="validateLatitude(place.latitude)">
         <div *ngIf="!latitudeValid" class="text-danger">Latitude should be between -90 and 90.</div>
     </div>
-    <button class="btn btn-success" type="submit">Submit Place</button>
+    <button class="btn btn-success" type="submit" [disabled]="!place.name">Submit Place</button>
 </form>

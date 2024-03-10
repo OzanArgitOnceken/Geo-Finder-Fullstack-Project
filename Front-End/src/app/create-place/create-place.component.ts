@@ -42,6 +42,7 @@ export class CreatePlaceComponent implements OnInit {
     this.latitudeValid = val >= -90 && val <= 90; // Geçerlilik durumunu kontrol edelim.
     return this.latitudeValid;
   }
+  
 
   onSubmit(): void {
     if (this.longitudeValid && this.latitudeValid) { // Eğer bozuk bir giriş yoksa, yer oluşturmayı devam ettirelim.
