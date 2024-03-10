@@ -7,19 +7,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreatePlaceComponent } from './create-place/create-place.component';
 import { FormsModule } from '@angular/forms';
 import { UpdatePlaceComponent } from './update-place/update-place.component';
+import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { PlacesMapComponent } from './places-map/places-map.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaceListComponent,
     CreatePlaceComponent,
-    UpdatePlaceComponent
+    UpdatePlaceComponent,
+    PlacesMapComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [
     provideClientHydration()
