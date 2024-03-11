@@ -43,6 +43,9 @@ public class PlaceController {
     public List<Place> getNearbyPlaces(@RequestParam("latitude") Double latitude,
                                        @RequestParam("longitude") Double longitude,
                                        @RequestParam("distance") Double distance) {
+        System.out.println("latitude :"+latitude);
+        System.out.println("longitude :"+longitude);
+        System.out.println("distance :"+distance);
         List<Place> allPlaces=placeRepository.findAll();
         List<Place> nearbyPlaces = new LinkedList<>();
         //every adding costs much in ArrayList and ArrayList's finding is O(1) and adding is O(n)
@@ -57,9 +60,12 @@ public class PlaceController {
 
             if(longitudeDistance>distance||latitudeDistance>distance)//do not have to calculate
                 continue;
-            double realDistance=Math.sqrt(longitudeDistance*latitudeDistance);
-            if(realDistance<=distance)
+            double realDistance=Math.sqrt((longitudeDistance*longitudeDistance)+(latitudeDistance*latitudeDistance));
+            if(realDistance<=distance) {
                 nearbyPlaces.add(place);
+
+                System.out.println(place.getName());
+            }
         }
         return  nearbyPlaces;
     }

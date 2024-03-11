@@ -12,6 +12,10 @@ export class PlaceService {
   getPlacesList(): Observable<Place[]> {
     return this.httpClient.get<Place[]>(`${this.baseURL}`);
   }
+  getNearbyPlacesList(latitude: number, longitude: number, distance: number): Observable<Place[]> {
+    const url = `${this.baseURL}/nearby?latitude=${latitude}&longitude=${longitude}&distance=${distance}`;
+    return this.httpClient.get<Place[]>(url);
+  }
   createPlace(place:Place):Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,place);
   }

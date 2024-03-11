@@ -37,7 +37,7 @@ export class UpdatePlaceComponent implements OnInit{
   goToPlaceList(){
     this.router.navigate(['/places']);
   }
-  onSubmit(): void {    
+  onSubmit(): void {
   if (this.longitudeValid && this.latitudeValid) {  
       this.placeService.updatePlace(this.id,this.place).subscribe(data=>{ 
       this.goToPlaceList();
