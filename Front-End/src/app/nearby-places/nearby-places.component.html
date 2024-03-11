@@ -1,0 +1,23 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" id="placeName"
+        placeholder="Must be a positive number"
+        [(ngModel)]="kilometer" name="placeName" required>
+    </div>
+    <div class="form-group">
+        <label>Longitude</label>
+        <input type="text" class="form-control" id="longitude"
+        [(ngModel)]="longitude" name="longitude" placeholder="Longitude should be between -180 and 180"
+        pattern="-?\d+(\.\d+)?" (ngModelChange)="validateLongitude(longitude)">
+        <div *ngIf="!longitudeValid" class="text-danger">Longitude should be between -180 and 180.</div>
+    </div>
+    <div class="form-group">
+        <label>Latitude</label>
+        <input type="text" class="form-control" id="latitude"
+        [(ngModel)]="latitude" name="latitude" placeholder="Latitude should be between -90 and 90"
+        pattern="-?\d+(\.\d+)?" (ngModelChange)="validateLatitude(latitude)">
+        <div *ngIf="!latitudeValid" class="text-danger">Latitude should be between -90 and 90.</div>
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="!myForm.valid">Search Place</button>
+</form>

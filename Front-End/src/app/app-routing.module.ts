@@ -4,6 +4,7 @@ import { PlaceListComponent } from './place-list/place-list.component';
 import { CreatePlaceComponent } from './create-place/create-place.component';
 import { UpdatePlaceComponent } from './update-place/update-place.component';
 import { PlacesMapComponent } from './places-map/places-map.component'; 
+import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
 
 const routes: Routes = [
   {path: 'places',component: PlaceListComponent},
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: '',redirectTo:'places',pathMatch:'full'},
   {path:'update-place/:id',component:UpdatePlaceComponent},
   {path:'places-map',component: PlacesMapComponent},
+  {path:'nearby-places',component: NearbyPlacesComponent},
 ];
 
 @NgModule({

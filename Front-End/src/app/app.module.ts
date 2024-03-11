@@ -10,14 +10,16 @@ import { UpdatePlaceComponent } from './update-place/update-place.component';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { PlacesMapComponent } from './places-map/places-map.component'; 
 import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import { NearbyPlacesComponent } from './nearby-places/nearby-places.component'; 
 @NgModule({
   declarations: [
     AppComponent,
     PlaceListComponent,
     CreatePlaceComponent,
     UpdatePlaceComponent,
-    PlacesMapComponent, 
+    PlacesMapComponent,
+    NearbyPlacesComponent, 
   ],
   imports: [
     CommonModule, 
