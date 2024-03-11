@@ -13,8 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class PlacesMapModule {}
 
-
-
 @Component({
   selector: 'app-places-map',
   templateUrl: './places-map.component.html',
@@ -38,10 +36,6 @@ export class PlacesMapComponent implements OnInit{
     this.display = event.latLng.toJSON();
   }
   
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit(): void { 
   }
- 
- 
-
 }

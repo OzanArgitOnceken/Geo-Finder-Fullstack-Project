@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Map;
@@ -35,6 +36,31 @@ public class PlaceController {
         Place place=placeRepository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("Place not exist with "+id+" id"));
         return ResponseEntity.ok(place);
+    }
+
+    @GetMapping("/places/nearby")
+    public List<Place> getNearbyPlaces(@RequestParam("latitude") Double latitude,
+                                       @RequestParam("longitude") Double longitude,
+                                       @RequestParam("distance") Double distance) {
+        List<Place> allPlaces=placeRepository.findAll();
+        List<Place> nearbyPlaces = new LinkedList<>();
+        //every adding costs much in ArrayList and ArrayList's finding is O(1) and adding is O(n)
+        // But in that situation we are sending whole list so adding should be cheap and LinkedList adding is O(1)
+        //so LinkedList is much better in that situation
+
+        distance/=111; //instead changing 2 latitudes and longitudes to kilometer
+        //changing 1 distance variable to longitude-latitude
+        for(Place place:allPlaces){
+            double latitudeDistance=(latitude-place.getLatitude());
+            double longitudeDistance=(longitude-place.getLongitude());
+
+            if(longitudeDistance>distance||latitudeDistance>distance)//do not have to calculate
+                continue;
+            double realDistance=Math.sqrt(longitudeDistance*latitudeDistance);
+            if(realDistance<=distance)
+                nearbyPlaces.add(place);
+        }
+        return  nearbyPlaces;
     }
 
     @PutMapping("/places/{id}")
