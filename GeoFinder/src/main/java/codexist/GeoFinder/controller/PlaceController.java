@@ -38,6 +38,7 @@ public class PlaceController {
         return ResponseEntity.ok(place);
     }
 
+
     @GetMapping("/places/nearby")
     public List<Place> getNearbyPlaces(@RequestParam("latitude") Double latitude,
                                        @RequestParam("longitude") Double longitude,
@@ -62,7 +63,6 @@ public class PlaceController {
         }
         return  nearbyPlaces;
     }
-
     @PutMapping("/places/{id}")
     public ResponseEntity<Place> updatePlace(@PathVariable Long id,@RequestBody Place placeDetails){
         Place place=placeRepository.findById(id)
