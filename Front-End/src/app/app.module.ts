@@ -11,7 +11,8 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { PlacesMapComponent } from './places-map/places-map.component'; 
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { NearbyPlacesComponent } from './nearby-places/nearby-places.component'; 
+import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
+import { MarkedMapComponent } from './marked-map/marked-map.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { NearbyPlacesComponent } from './nearby-places/nearby-places.component';
     CreatePlaceComponent,
     UpdatePlaceComponent,
     PlacesMapComponent,
-    NearbyPlacesComponent, 
+    NearbyPlacesComponent,
+    MarkedMapComponent, 
   ],
   imports: [
     CommonModule, 
